@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
+import { SmoothScrollProvider } from "@/components/smooth-scroll/SmoothScrollProvider";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -21,7 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={sora.variable}>
-      <body className="bg-bg text-fg font-sans antialiased">{children}</body>
+      <body className="bg-bg text-fg font-sans antialiased">
+        <a
+          href="#content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-fg focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-bg focus:outline-none focus:ring-2 focus:ring-accent"
+        >
+          Saltar al contenido principal
+        </a>
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+      </body>
     </html>
   );
 }

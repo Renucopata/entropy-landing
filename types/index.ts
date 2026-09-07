@@ -1,1 +1,1 @@
-// Shared types: Hotspot, CameraState, SectionId.
+export type SectionId = "servicios" | "nosotros" | "proyectos" | "contacto";
